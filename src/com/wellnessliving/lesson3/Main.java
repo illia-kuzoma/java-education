@@ -154,45 +154,45 @@ public class Main {
         );
 
         System.out.println("Top 3 students from Paris:");
-        List<StudentDetails> topGradesParis = students.stream()
+        List<StudentRecord> topGradesParis = students.stream()
                 .filter(student -> "Paris".equals(student.getAddress().getCity()))
                 .flatMap(student -> student.getGrades().stream()
-                        .map(grade -> new StudentDetails(student.getName(), student.getSchool(), grade.getSubject(), grade.getScore()))
+                        .map(grade -> new StudentRecord(student.getName(), student.getSchool(), grade.getSubject(), grade.getScore()))
                 )
-                .sorted(Comparator.comparingDouble(StudentDetails::getScore).reversed())
+                .sorted(Comparator.comparingDouble(StudentRecord::score).reversed())
                 .limit(3)
                 .toList();
 
         topGradesParis.forEach(record ->
-                System.out.println(record.getStudentName() + ", " + record.getSchool() + ", " + record.getSubject() + ", " + record.getScore())
+                System.out.println(record.studentName() + ", " + record.school() + ", " + record.subject() + ", " + record.score())
         );
 
         System.out.println("\nTop 3 students from Washington:");
-        List<StudentDetails> topGradesWashington = students.stream()
+        List<StudentRecord> topGradesWashington = students.stream()
                 .filter(student -> "Washington".equals(student.getAddress().getCity()))
                 .flatMap(student -> student.getGrades().stream()
-                        .map(grade -> new StudentDetails(student.getName(), student.getSchool(), grade.getSubject(), grade.getScore()))
+                        .map(grade -> new StudentRecord(student.getName(), student.getSchool(), grade.getSubject(), grade.getScore()))
                 )
-                .sorted(Comparator.comparingDouble(StudentDetails::getScore).reversed())
+                .sorted(Comparator.comparingDouble(StudentRecord::score).reversed())
                 .limit(3)
                 .toList();
 
         topGradesWashington.forEach(record ->
-                System.out.println(record.getStudentName() + ", " + record.getSchool() + ", " + record.getSubject() + ", " + record.getScore())
+                System.out.println(record.studentName() + ", " + record.school() + ", " + record.subject() + ", " + record.score())
         );
 
         System.out.println("\nTop 3 students from Kyiv:");
-        List<StudentDetails> topGradesKyiv = students.stream()
+        List<StudentRecord> topGradesKyiv = students.stream()
                 .filter(student -> "Kyiv".equals(student.getAddress().getCity()))
                 .flatMap(student -> student.getGrades().stream()
-                        .map(grade -> new StudentDetails(student.getName(), student.getSchool(), grade.getSubject(), grade.getScore()))
+                        .map(grade -> new StudentRecord(student.getName(), student.getSchool(), grade.getSubject(), grade.getScore()))
                 )
-                .sorted(Comparator.comparingDouble(StudentDetails::getScore).reversed())
+                .sorted(Comparator.comparingDouble(StudentRecord::score).reversed())
                 .limit(3)
                 .toList();
 
         topGradesKyiv.forEach(record ->
-                System.out.println(record.getStudentName() + ", " + record.getSchool() + ", " + record.getSubject() + ", " + record.getScore())
+                System.out.println(record.studentName() + ", " + record.school() + ", " + record.subject() + ", " + record.score())
         );
     }
 }
